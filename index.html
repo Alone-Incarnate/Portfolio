@@ -3,22 +3,265 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chandan's Portfolio</title>
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <title>Chandan Yadav | AI/ML Engineer</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        /* Custom Variables */
+        :root {
+            --primary: #00ff88;
+            --secondary: #60efff;
+            --bg: linear-gradient(45deg, #0a0a0a, #1a1a1a);
+            --glass: rgba(255, 255, 255, 0.05);
+            --shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        }
 
+        /* Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--bg);
+            color: white;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Header */
+        header {
+            padding: 6rem 0 4rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header h1 {
+            font-size: 4.5rem;
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1rem;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        /* Navigation */
+        nav {
+            margin-top: 2rem;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        nav a {
+            color: white;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+        }
+
+        nav a:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        /* Sections */
+        .section {
+            padding: 5rem 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        h2 {
+            font-size: 3rem;
+            margin-bottom: 3rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: var(--primary);
+        }
+
+        /* Project Cards */
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: var(--glass);
+            border-radius: 15px;
+            padding: 1.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow);
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                45deg,
+                transparent,
+                rgba(255, 255, 255, 0.1),
+                transparent
+            );
+            transform: rotate(45deg);
+            pointer-events: none;
+        }
+
+        .project-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+        }
+
+        .project-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .project-card p {
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 1.5rem;
+        }
+
+        .project-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.8rem 1.5rem;
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            color: black;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: transform 0.3s ease;
+        }
+
+        .project-button:hover {
+            transform: translateX(10px);
+        }
+
+        /* Experience Timeline */
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 3rem auto;
+        }
+
+        .timeline-item {
+            padding: 2rem;
+            background: var(--glass);
+            border-radius: 15px;
+            margin: 2rem 0;
+            position: relative;
+            border-left: 3px solid var(--primary);
+        }
+
+        /* Contact Section */
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .contact-link {
+            font-size: 2rem;
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        .contact-link:hover {
+            color: var(--primary);
+            transform: translateY(-5px);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 3rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Animations */
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 3rem;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .project-grid {
+                grid-template-columns: 1fr;
+            }
+
+            h2 {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
 </head>
 <body>
     <header>
         <div class="container">
             <h1>Chandan Yadav</h1>
-
             <p>B.Tech in AI & ML | Machine Learning Enthusiast | Chatbot Developer</p>
             <nav>
                 <ul>
-                    <li><a href="#about"><i class="fas fa-user"></i> About Me</a></li>
+                    <li><a href="#about"><i class="fas fa-user"></i> About</a></li>
                     <li><a href="#experience"><i class="fas fa-briefcase"></i> Experience</a></li>
                     <li><a href="#projects"><i class="fas fa-code"></i> Projects</a></li>
                     <li><a href="#contact"><i class="fas fa-envelope"></i> Contact</a></li>
@@ -29,59 +272,56 @@
 
     <section id="about" class="section">
         <div class="container">
-            <h2>About Me</h2>
-            <p>I am an AI & Machine Learning enthusiast pursuing my B.Tech from Hi-tech Institute of Engineering & Technology. I have hands-on experience in building predictive models, chatbots, and object detection systems. I am passionate about exploring new technologies and solving real-world problems with AI.</p>
+            <center><h2>About Me</h2></center>
+            <center><p>
+                I am an AI & Machine Learning enthusiast pursuing my B.Tech from Hi-tech Institute of Engineering & Technology. I have hands-on experience in building predictive models, chatbots, and object detection systems. I am passionate about exploring new technologies and solving real-world problems with AI.
+            </p></center>
         </div>
     </section>
 
     <section id="experience" class="section">
         <div class="container">
-            <h2>Experience</h2>
-            <ul>
-                <li><strong>Intern, Zigguratss Artwork LLP (Apr 2024 - Jul 2024)</strong> - Built a Rasa chatbot to reduce query resolution time by 20%.</li>
-                <li><strong>Intern, Technex, IIT (BHU) Varanasi (Feb 2022 - Mar 2022)</strong> - Developed a predictive model for house prices with 80% accuracy.</li>
-                
-            </ul>
+            <center><h2>Experience</h2></center>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <h3>Intern, Zigguratss Artwork LLP</h3>
+                    <p class="duration">Apr 2024 - Jul 2024</p>
+                    <ul>
+                        <li>Built a Rasa chatbot to reduce query resolution time by 20%.</li>
+                    </ul>
+                </div>
+                <div class="timeline-item">
+                    <h3>Intern, Technex, IIT (BHU) Varanasi</h3>
+                    <p class="duration">Feb 2022 - Mar 2022</p>
+                    <ul>
+                        <li>Developed a predictive model for house prices with 80% accuracy.</li>
+                    </ul>
+                </div>
+            </div>
         </div>
     </section>
 
     <section id="projects" class="section">
         <div class="container">
-            <h2>Projects</h2>
+            <center><h2>Projects</h2></center>
             <div class="project-grid">
                 <div class="project-card">
-                    <img src="https://tse2.mm.bing.net/th?id=OIP.FCiN2rDgGiJdXn6WNSqN6wHaD7&pid=Api" alt="Image Annotation" class="project-img">
+                    <img src="https://img.freepik.com/premium-photo/man-city-face-recognition-innovation-technology-identity-information-biometric-digital-transformation-frame-tech-evolution-future-with-urban-surveillance-street_590464-239183.jpg?w=1380" alt="Image Annotation" class="project-img">
                     <h3>Image Annotation</h3>
                     <p>A Python script utilizing YOLOv8 for real-time object detection and annotation with bounding boxes and labels.</p>
-                    <a href="https://github.com/Alone-Incarnate/Image_Annotation" class="project-button" target="_blank">View on GitHub</a>
+                    <a href="https://github.com/Alone-Incarnate/Image_Annotation" class="project-button">View on GitHub</a>
                 </div>
                 <div class="project-card">
                     <img src="https://tse2.mm.bing.net/th?id=OIP.q7fNNrfxyQnktNVgAy_N4gHaEK&pid=Api" alt="YouTube2Speech" class="project-img">
                     <h3>YouTube2Speech</h3>
                     <p>Automates video transcription by downloading YouTube videos, extracting audio, and converting text to speech.</p>
-                    <a href="https://github.com/Alone-Incarnate/YouTube2Speech" class="project-button" target="_blank">View on GitHub</a>
-
+                    <a href="https://github.com/Alone-Incarnate/YouTube2Speech" class="project-button">View on GitHub</a>
                 </div>
                 <div class="project-card">
                     <img src="https://tse4.mm.bing.net/th?id=OIP.Gt1WJ0YxS01wDgqiuZ36qgHaDF&pid=Api" alt="Web Scraping" class="project-img">
                     <h3>Web Scraping</h3>
                     <p>Demonstrates web scraping techniques to extract data from websites for data collection and analysis.</p>
-                    <a href="https://github.com/Alone-Incarnate/Web-scraping" class="project-button" target="_blank">View on GitHub</a>
-
-                </div>
-                <div class="project-card">
-                    <img src="https://tse1.mm.bing.net/th?id=OIP.dVj6eqwXFnzuqoNcQXiKjwHaFj&pid=Api" alt="Face Recognition" class="project-img">
-                    <h3>Face Recognition with Voice Alert</h3>
-                    <p>Real-time face recognition with voice alerts to enhance security and identification.</p>
-                    <a href="https://github.com/Alone-Incarnate/FaceRecog_VoiceAlert" class="project-button" target="_blank">View on GitHub</a>
-
-                </div>
-                <div class="project-card">
-                    <img src="https://tse3.mm.bing.net/th?id=OIP.ZzbVHsdJg6zD3YZlUo0JXgHaDt&pid=Api" alt="AI Internship Task" class="project-img">
-                    <h3>AI Internship Task</h3>
-                    <p>A Python project showcasing applied machine learning skills as part of an AI internship task.</p>
-                    <a href="https://github.com/Alone-Incarnate/chandan-yadav-wasserstoff-AiInternTask" class="project-button" target="_blank">View on GitHub</a>
-
+                    <a href="https://github.com/Alone-Incarnate/Web-scraping" class="project-button">View on GitHub</a>
                 </div>
             </div>
         </div>
@@ -89,20 +329,25 @@
 
     <section id="contact" class="section">
         <div class="container">
-            <h2>Contact Me</h2>
-            <p><i class="fas fa-envelope"></i> Email: chandanyadav.developer@gmail.com</p>
-            <p><i class="fab fa-linkedin"></i> LinkedIn: <a href="https://www.linkedin.com/in/chandan-yadav-8275611b8/">linkedin.com/in/Chandan</a></p>
-            <p><i class="fab fa-github"></i> GitHub: <a href="https://github.com/Alone-Incarnate">github.com/chandan</a></p>
+            <center><h2>Contact Me</h2></center>
+            <div class="contact-links">
+                <a href="mailto:chandanyadav.developer@gmail.com" class="contact-link">
+                    <i class="fas fa-envelope"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/chandan-yadav-8275611b8/" class="contact-link">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="https://github.com/Alone-Incarnate" class="contact-link">
+                    <i class="fab fa-github"></i>
+                </a>
+            </div>
         </div>
     </section>
-    
-    
 
     <footer>
         <div class="container">
-            <p>&copy; 2024 Chandan. All Rights Reserved.</p>
+            <p>&copy; 2025 Chandan Yadav. All Rights Reserved.</p>
         </div>
     </footer>
-    
 </body>
 </html>
